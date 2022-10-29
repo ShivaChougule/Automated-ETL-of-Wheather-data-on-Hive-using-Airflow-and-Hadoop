@@ -1,0 +1,10 @@
+fsspec
+pyarrow
+unidecode
+openjdk-11-jdk
+pandas
+
+
+
+
+

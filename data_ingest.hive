@@ -1,0 +1,29 @@
+DROP TABLE IF EXISTS temp;
+
+create table temp (
+    cityname string,
+    datetime string,
+    cloud string,
+    description string,
+    temp double,
+    pressure BIGINT,
+    humidity BIGINT, 
+    visibility BIGINT,
+    windspeed double,
+    wind_direction BIGINT,
+    cloudiness_percent BIGINT,
+    sunrise string,
+    sunset string)
+row format delimited
+fields terminated by ',';
+
+load data inpath '/user/talentum/raw.csv' into table temp;
+
+INSERT INTO table weather_data select * FROM temp;
+
+DROP TABLE IF EXISTS temp;
+
+
+
+
+

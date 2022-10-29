@@ -1,0 +1,14 @@
+create table weather_data (
+    cityname string,
+    datetime string,
+    cloud string,
+    cloud description string,
+    temp double,
+    pressure BIGINT,
+    humidity BIGINT, 
+    visibility BIGINT,
+    windspeed double,
+    wind_direction BIGINT,
+    cloudiness_percent BIGINT
+    sunrise string,
+    sunset string)
