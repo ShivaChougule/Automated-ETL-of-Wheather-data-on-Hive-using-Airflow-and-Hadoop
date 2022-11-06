@@ -14,7 +14,8 @@ create table temp (
     cloudiness_percent BIGINT,
     sunrise string,
     sunset string)
-stored as parquet;
+row format delimited
+fields terminated by ',';
 
 load data inpath '/user/talentum/raw.csv' into table temp;
 
