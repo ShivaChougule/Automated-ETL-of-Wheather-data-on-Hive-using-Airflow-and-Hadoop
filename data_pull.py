@@ -69,6 +69,7 @@ data_df['cityname'] = data_df['cityname'].apply(lambda x: unidecode.unidecode(x)
 data_df.convert_dtypes()
 
 #print(data_df)
-data_df.to_csv('hdfs://localhost:9000/user/talentum/raw.csv', header=False,index=False)
+#data_df.to_csv('hdfs://localhost:9000/user/talentum/raw.csv', header=False,index=False)
+DataFrame.to_parquet('hdfs://localhost:9000/user/talentum/raw.csv', engine='pyarrow',index=False)
 
 "============================================================================================================================="
