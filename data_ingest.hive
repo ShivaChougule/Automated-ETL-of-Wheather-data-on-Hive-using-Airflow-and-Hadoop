@@ -1,3 +1,4 @@
+create table temp like weather_data;
 load data inpath '/user/talentum/raw.csv' overwrite into table temp;
-
 insert into table weather_data select * from temp;
+drop table temp;
