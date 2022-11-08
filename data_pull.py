@@ -70,7 +70,7 @@ data_df['cityname'] = data_df['cityname'].apply(lambda x: unidecode.unidecode(x)
 
 print(data_df)
 #data_df.to_csv('hdfs://localhost:9000/user/talentum/raw.csv', header=False,index=False)
-#data_df.to_parquet('hdfs://localhost:9000/user/talentum/raw.parquet',index=False,engine='pyarrow')
-data_df.to_orc('hdfs:///user/talentum/raw.orc',index=False,engine='pyarrow')
+#data_df.to_orc('hdfs:///user/talentum/raw.orc',index=False,engine='pyarrow')
+data_df.to_parquet('hdfs://localhost:9000/user/talentum/raw.parquet',index=False,engine='pyarrow')
 
 "============================================================================================================================="
