@@ -4,12 +4,12 @@ create table weather_data (
     cloud string,
     cloud description string,
     temp double,
-    pressure BIGINT,
-    humidity BIGINT, 
-    visibility BIGINT,
+    pressure bigint,
+    humidity bigint, 
+    visibility bigint,
     windspeed double,
-    wind_direction BIGINT,
-    cloudiness_percent BIGINT
+    wind_direction bigint,
+    cloudiness_percent bigint
     sunrise string,
     sunset string)
-    stored as orc;
+    stored as parquet;
