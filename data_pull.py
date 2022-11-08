@@ -46,7 +46,7 @@ for i in df.index:
     station_data = station_response.json()
     sd_dict = {    
         'cityname': station_data['name'],
-        "datetime": datetime.fromtimestamp(station_data['dt']).strftime('%d-%m-%y'),        
+        "datetime": (station_data['dt']),        
         "cloud": station_data['weather'][0]['main'] if 'main' in station_data['weather'][0] else 'None',
         "cloud description": station_data['weather'][0]['description'] if 'description' in station_data['weather'][0] else 'None',       
         "temp": station_data['main']['temp'] if 'temp' in station_data['main'] else 'None',        
@@ -56,8 +56,8 @@ for i in df.index:
         "windspeed_mps": station_data['wind']['speed'] if 'speed' in station_data['wind'] else 'None',
         "wind_direction_deg": station_data['wind']['deg']  if 'deg' in station_data['wind'] else 'None',        
         "cloudiness_percent": station_data['clouds']['all'] if 'all' in station_data['clouds'] else 'None',
-        "sunrise": datetime.fromtimestamp(station_data['sys']['sunrise']).strftime('%d-%m-%y %H:%M:%S'),
-        'sunset': datetime.fromtimestamp(station_data['sys']['sunset']).strftime('%d-%m-%y %H:%M:%S')
+        "sunrise": (station_data['sys']['sunrise']),
+        'sunset': (station_data['sys']['sunset'])
     }
     station_data_lst.append(sd_dict)
 
@@ -69,7 +69,8 @@ data_df['cityname'] = data_df['cityname'].apply(lambda x: unidecode.unidecode(x)
 data_df.convert_dtypes()
 
 #print(data_df)
-data_df.to_csv('hdfs://localhost:9000/user/talentum/raw.csv', header=False,index=False)
+#data_df.to_csv('hdfs://localhost:9000/user/talentum/raw.csv', header=False,index=False)
+data_df.to_parquet('hdfs://localhost:9000/user/talentum/raw.parquet', engine='pyarrow',index=False)
 
 
 "============================================================================================================================="
