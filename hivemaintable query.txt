@@ -12,3 +12,4 @@ create table weather_data (
     cloudiness_percent BIGINT
     sunrise string,
     sunset string)
+    stored as orc;
