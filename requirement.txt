@@ -3,4 +3,4 @@ pyarrow #version greater than > 7.0
 unidecode
 openjdk-11-jdk-headless
 pandas  #version greater than > 1.5
-request
+requests
